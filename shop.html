@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – The Farm Box | Fresh Nigerian Produce</title>
+  <meta name="description" content="Shop fresh Nigerian vegetables, fruits and farm boxes. Same-day delivery across Lagos."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          green: { 50:'#f0f7ee',100:'#ddf0d8',200:'#bbddb1',600:'#2e7026',700:'#255c1e',800:'#1e491a',900:'#193d16' },
+          earth: { 300:'#e0b87e', 400:'#d09b52', 500:'#c07f35' },
+          cream: '#faf7f2',
+          sage:  '#8fad88'
+        },
+        fontFamily: {
+          display: ['Fraunces', 'Georgia', 'serif'],
+          body:    ['DM Sans', 'sans-serif']
+        }
+      }}
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="font-body bg-cream text-stone-800">
+
+  <!-- ═══ NAVBAR (always solid on inner pages) ═══ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-9 h-9 bg-green-600 rounded-full flex items-center justify-center text-white text-sm">🌿</div>
+          <span class="nav-logo-text font-display font-semibold text-xl">The Farm Box</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html"        class="nav-link text-sm font-medium">Home</a>
+          <a href="shop.html"         class="nav-link text-sm font-bold" style="color:#2e7026">Shop</a>
+          <a href="subscription.html" class="nav-link text-sm font-medium">Subscribe</a>
+          <a href="about.html"        class="nav-link text-sm font-medium">About</a>
+          <a href="contact.html"      class="nav-link text-sm font-medium">Contact</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="cart-btn" onclick="toggleCart()" class="relative p-2 rounded-full hover:bg-green-50 transition-colors">
+            <svg class="nav-icon w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+            </svg>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-earth-400 text-white text-xs w-4 h-4 rounded-full items-center justify-center font-bold hidden">0</span>
+          </button>
+          <button onclick="toggleMenu()" class="md:hidden p-2 rounded-full hover:bg-green-50 transition-colors">
+            <svg class="w-5 h-5 text-stone-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden">
+      <div class="px-4 py-4 flex flex-col gap-1">
+        <a href="index.html"        class="text-sm text-stone-600 py-2.5 border-b border-stone-100">Home</a>
+        <a href="shop.html"         class="text-sm font-bold py-2.5 border-b border-stone-100" style="color:#2e7026">Shop</a>
+        <a href="subscription.html" class="text-sm text-stone-600 py-2.5 border-b border-stone-100">Subscribe</a>
+        <a href="about.html"        class="text-sm text-stone-600 py-2.5 border-b border-stone-100">About</a>
+        <a href="contact.html"      class="text-sm text-stone-600 py-2.5">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE HEADER ═══ -->
+  <div class="pt-24 pb-10 bg-white border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-display text-4xl md:text-5xl font-semibold text-stone-800 mb-2">Fresh from the farm</h1>
+      <p class="text-stone-500">Harvested this week &middot; Delivered to your door across Lagos</p>
+    </div>
+  </div>
+
+  <!-- ═══ SHOP MAIN ═══ -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
+
+    <!-- Filter tabs -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button data-filter="all"        onclick="filterProducts('all')"        class="filter-btn px-5 py-2 rounded-full text-sm font-semibold bg-green-700 text-white border border-transparent transition-all">All Products</button>
+      <button data-filter="vegetables" onclick="filterProducts('vegetables')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white border border-stone-200 text-stone-600 hover:border-green-500 hover:text-green-700 transition-all">&#x1F96C; Vegetables</button>
+      <button data-filter="fruits"     onclick="filterProducts('fruits')"     class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white border border-stone-200 text-stone-600 hover:border-green-500 hover:text-green-700 transition-all">&#x1F34D; Fruits</button>
+      <button data-filter="boxes"      onclick="filterProducts('boxes')"      class="filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white border border-stone-200 text-stone-600 hover:border-green-500 hover:text-green-700 transition-all">&#x1F4E6; Farm Boxes</button>
+    </div>
+
+    <!-- Search -->
+    <div class="relative max-w-sm mb-10">
+      <input type="text" id="search-input" placeholder="Search produce..."
+             oninput="searchProducts(this.value)"
+             class="w-full bg-white border border-stone-200 rounded-full py-3 pl-11 pr-5 text-sm placeholder-stone-400 transition-colors"/>
+      <svg class="absolute left-4 top-3.5 w-4 h-4 text-stone-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+    </div>
+
+    <!-- Product grid — rendered directly by JS below -->
+    <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"></div>
+    <p id="no-results" class="hidden text-center text-stone-400 py-16 text-sm">No products found. Try a different search.</p>
+
+    <!-- Farm Box bundles -->
+    <div id="boxes-section" class="mt-16">
+      <h2 class="font-display text-3xl font-semibold text-stone-800 mb-1">Farm Box Bundles</h2>
+      <p class="text-stone-500 text-sm mb-8">Best value &mdash; curated seasonal produce packed fresh.</p>
+      <div id="boxes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-green-900 text-white py-8 mt-8">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 bg-green-700 rounded-full flex items-center justify-center text-xs">🌿</div>
+        <span class="font-display font-semibold">The Farm Box</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="index.html"        class="text-white/60 hover:text-white text-sm transition-colors">Home</a>
+        <a href="subscription.html" class="text-white/60 hover:text-white text-sm transition-colors">Subscribe</a>
+        <a href="contact.html"      class="text-white/60 hover:text-white text-sm transition-colors">Contact</a>
+      </div>
+      <p class="text-white/30 text-xs">&copy; 2025 The Farm Box</p>
+    </div>
+  </footer>
+
+  <!-- ═══ CART DRAWER ═══ -->
+  <div id="cart-overlay" onclick="toggleCart()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:50;backdrop-filter:blur(4px)"></div>
+  <div id="cart-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-2xl flex flex-col"
+       style="transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)">
+    <div class="flex items-center justify-between p-5 border-b border-stone-100">
+      <h2 class="font-display text-xl font-semibold">Your Cart</h2>
+      <button onclick="toggleCart()" class="p-2 hover:bg-stone-100 rounded-full transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+    <div class="p-5 border-t border-stone-100">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-stone-500 text-sm font-medium">Total</span>
+        <span id="cart-total" class="font-display font-bold text-2xl text-green-700">&#8358;0</span>
+      </div>
+      <button onclick="checkoutWhatsApp()"
+              class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-3.5 rounded-full flex items-center justify-center gap-2 mb-2.5 text-sm transition-colors">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Order via WhatsApp
+      </button>
+      <button onclick="checkoutPaystack()"
+              class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-3.5 rounded-full text-sm transition-colors">
+        Pay with Card (Paystack)
+      </button>
+    </div>
+  </div>
+
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Toast -->
+  <div id="toast" style="position:fixed;bottom:5rem;left:50%;transform:translateX(-50%);z-index:60;
+       background:#1e4918;color:#fff;font-size:.875rem;font-weight:600;padding:.75rem 1.5rem;
+       border-radius:9999px;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;
+       transition:opacity .3s ease;pointer-events:none;white-space:nowrap"></div>
+
+  <!-- Shared scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <!--
+    SHOP PAGE SCRIPT
+    ════════════════
+    KEY RULE: Scripts at the bottom of <body> run AFTER the full DOM is parsed.
+    So products-grid, boxes-grid etc. already exist when this runs.
+    We call renderProducts() and renderBoxes() DIRECTLY — no DOMContentLoaded.
+  -->
+  <script>
+    /* ── Product data ───────────────────────────────────────────────────── */
+    var PRODUCTS = [
+      { id:'p1',  name:'Fresh Tomatoes',         price:1200, unit:'per 1kg',    category:'vegetables', tag:'bestseller', img:'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&q=80' },
+      { id:'p2',  name:'Ugu Leaves',             price:800,  unit:'per bundle', category:'vegetables', tag:'fresh',      img:'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80' },
+      { id:'p3',  name:'Sweet Pepper (Tatashe)', price:950,  unit:'per 500g',   category:'vegetables', tag:'fresh',      img:'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&q=80' },
+      { id:'p4',  name:'Garden Eggs',            price:700,  unit:'per 500g',   category:'vegetables', tag:'local',      img:'https://images.unsplash.com/photo-1598030304671-5aa1d6f21128?w=400&q=80' },
+      { id:'p5',  name:'Ripe Plantain',          price:1100, unit:'per finger', category:'fruits',     tag:'bestseller', img:'https://images.unsplash.com/photo-1603833665858-e61d17a86224?w=400&q=80' },
+      { id:'p6',  name:'Watermelon',             price:3500, unit:'per whole',  category:'fruits',     tag:'seasonal',   img:'https://images.unsplash.com/photo-1563114773-84221bd62daa?w=400&q=80' },
+      { id:'p7',  name:'Cucumber',               price:500,  unit:'per 2 pcs',  category:'vegetables', tag:'fresh',      img:'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=400&q=80' },
+      { id:'p8',  name:'Fresh Spinach',          price:650,  unit:'per bundle', category:'vegetables', tag:'organic',    img:'https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400&q=80' },
+      { id:'p9',  name:'Carrots',                price:900,  unit:'per 500g',   category:'vegetables', tag:'fresh',      img:'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400&q=80' },
+      { id:'p10', name:'Pineapple',              price:1500, unit:'per whole',  category:'fruits',     tag:'seasonal',   img:'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&q=80' },
+      { id:'p11', name:'Onions (Red)',           price:800,  unit:'per 1kg',    category:'vegetables', tag:'local',      img:'https://images.unsplash.com/photo-1508747703725-719777637510?w=400&q=80' },
+      { id:'p12', name:'Avocado',               price:1200,  unit:'per 2 pcs',  category:'fruits',     tag:'organic',    img:'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&q=80' }
+    ];
+
+    var BOXES = [
+      { id:'small-box',  name:'Small Farm Box',  price:5000,  size:'small',  items:'5-7 items',   feeds:'1-2 people', img:'https://images.unsplash.com/photo-1467453678174-768ec283a940?w=600&q=80' },
+      { id:'medium-box', name:'Medium Farm Box', price:10000, size:'medium', items:'10-12 items', feeds:'3-4 people', img:'https://images.unsplash.com/photo-1518843875459-f738682238a6?w=600&q=80' },
+      { id:'large-box',  name:'Large Farm Box',  price:15000, size:'large',  items:'18-22 items', feeds:'5+ people',  img:'https://images.unsplash.com/photo-1506484381205-f7945653044d?w=600&q=80' }
+    ];
+
+    /* Badge colours stored as inline styles (avoids Tailwind JIT purge issues) */
+    var TAG_STYLE = {
+      bestseller: 'background:#fef3c7;color:#92400e;',
+      fresh:      'background:#dcfce7;color:#166534;',
+      seasonal:   'background:#dbeafe;color:#1e40af;',
+      organic:    'background:#ecfccb;color:#3f6212;',
+      local:      'background:#ffedd5;color:#9a3412;'
+    };
+
+    var currentFilter = 'all';
+
+    /* ── Build one product card ─────────────────────────────────────────── */
+    function buildCard(p) {
+      /* Encode product as JSON stored in data attribute.
+         JSON.stringify + replace " -> &quot; is the ONLY safe way to pass
+         arbitrary data through an HTML attribute without breakage. */
+      var pj  = JSON.stringify(p).replace(/"/g, '&quot;');
+      var tst = TAG_STYLE[p.tag] || 'background:#f1f5f9;color:#475569;';
+      var tag = p.tag ? '<span style="position:absolute;top:8px;left:8px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;' + tst + '">' + p.tag + '</span>' : '';
+
+      return '<div class="product-card bg-white rounded-2xl overflow-hidden border border-stone-100 hover:border-green-200 hover:shadow-xl transition-all duration-300 group">'
+           +   '<div class="aspect-square overflow-hidden relative bg-stone-50">'
+           +     '<img src="' + p.img + '" alt="' + p.name + '" loading="lazy"'
+           +          ' onerror="this.onerror=null;this.src=\'https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&q=60\'"'
+           +          ' class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>'
+           +     tag
+           +   '</div>'
+           +   '<div class="p-4">'
+           +     '<h3 class="font-medium text-stone-800 text-sm mb-1 leading-snug">' + p.name + '</h3>'
+           +     '<div class="flex items-baseline gap-1 mb-3">'
+           +       '<span class="text-base font-bold" style="color:#255c1e">&#8358;' + p.price.toLocaleString() + '</span>'
+           +       '<span class="text-xs text-stone-400">' + p.unit + '</span>'
+           +     '</div>'
+           +     '<button class="add-to-cart-btn w-full text-white text-xs font-semibold py-2.5 rounded-full transition-all duration-150"'
+           +             ' style="background:#255c1e" data-product="' + pj + '" type="button">'
+           +       '+ Add to Cart'
+           +     '</button>'
+           +   '</div>'
+           + '</div>';
+    }
+
+    /* ── Build one box card ─────────────────────────────────────────────── */
+    function buildBoxCard(b) {
+      var pj = JSON.stringify({ id:b.id, name:b.name, price:b.price, img:b.img }).replace(/"/g, '&quot;');
+
+      return '<div class="bg-white rounded-2xl overflow-hidden border border-stone-100 hover:shadow-xl transition-all duration-300 group">'
+           +   '<div class="h-48 overflow-hidden relative bg-stone-50">'
+           +     '<img src="' + b.img + '" alt="' + b.name + '" loading="lazy"'
+           +          ' onerror="this.onerror=null;this.src=\'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=60\'"'
+           +          ' class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>'
+           +     '<span style="position:absolute;top:12px;left:12px;background:rgba(255,255,255,.9);color:#1e4918;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;text-transform:capitalize">' + b.size + ' box</span>'
+           +   '</div>'
+           +   '<div class="p-5">'
+           +     '<div class="flex justify-between items-center mb-1">'
+           +       '<h3 class="font-display text-xl font-semibold text-stone-800">' + b.name + '</h3>'
+           +       '<span class="font-bold text-lg" style="color:#255c1e">&#8358;' + b.price.toLocaleString() + '</span>'
+           +     '</div>'
+           +     '<p class="text-xs text-stone-400 mb-4">' + b.items + ' &middot; ' + b.feeds + ' &middot; Free delivery</p>'
+           +     '<button class="add-to-cart-btn w-full text-white font-semibold py-3 rounded-full text-sm transition-all duration-150"'
+           +             ' style="background:#255c1e" data-product="' + pj + '" type="button">'
+           +       'Add to Cart'
+           +     '</button>'
+           +   '</div>'
+           + '</div>';
+    }
+
+    /* ── Render products grid ───────────────────────────────────────────── */
+    function renderProducts(list) {
+      var grid  = document.getElementById('products-grid');
+      var noRes = document.getElementById('no-results');
+      if (!list || list.length === 0) {
+        grid.innerHTML = '';
+        noRes.classList.remove('hidden');
+        return;
+      }
+      noRes.classList.add('hidden');
+      var html = '';
+      for (var i = 0; i < list.length; i++) { html += buildCard(list[i]); }
+      grid.innerHTML = html;
+    }
+
+    /* ── Render boxes grid ──────────────────────────────────────────────── */
+    function renderBoxes(list) {
+      var grid = document.getElementById('boxes-grid');
+      if (!grid) return;
+      var html = '';
+      for (var i = 0; i < list.length; i++) { html += buildBoxCard(list[i]); }
+      grid.innerHTML = html;
+    }
+
+    /* ── Filter tabs ────────────────────────────────────────────────────── */
+    function filterProducts(cat) {
+      currentFilter = cat;
+      var btns = document.querySelectorAll('.filter-btn');
+      for (var i = 0; i < btns.length; i++) {
+        var active = btns[i].getAttribute('data-filter') === cat;
+        btns[i].className = active
+          ? 'filter-btn px-5 py-2 rounded-full text-sm font-semibold text-white border border-transparent transition-all'
+          : 'filter-btn px-5 py-2 rounded-full text-sm font-medium bg-white border border-stone-200 text-stone-600 hover:border-green-500 hover:text-green-700 transition-all';
+        btns[i].style.background = active ? '#255c1e' : '';
+      }
+      var sec = document.getElementById('boxes-section');
+      if (cat === 'boxes') {
+        sec.style.display = 'block';
+        document.getElementById('products-grid').innerHTML = '';
+        document.getElementById('no-results').classList.add('hidden');
+        return;
+      }
+      sec.style.display = (cat === 'all') ? 'block' : 'none';
+      var filtered = (cat === 'all') ? PRODUCTS : PRODUCTS.filter(function(p) { return p.category === cat; });
+      renderProducts(filtered);
+    }
+    window.filterProducts = filterProducts;
+
+    /* ── Search ─────────────────────────────────────────────────────────── */
+    function searchProducts(val) {
+      var q = (val || '').toLowerCase().trim();
+      if (!q) {
+        var base = (currentFilter === 'all') ? PRODUCTS : PRODUCTS.filter(function(p) { return p.category === currentFilter; });
+        renderProducts(base);
+        return;
+      }
+      renderProducts(PRODUCTS.filter(function(p) {
+        return p.name.toLowerCase().indexOf(q) > -1 || p.category.toLowerCase().indexOf(q) > -1;
+      }));
+    }
+    window.searchProducts = searchProducts;
+
+    /* ── RENDER NOW ─────────────────────────────────────────────────────────
+       The DOM elements above already exist (script is at bottom of body).
+       Calling these directly is correct — no event listener needed.       */
+    renderProducts(PRODUCTS);
+    renderBoxes(BOXES);
+  </script>
+
+</body>
+</html>

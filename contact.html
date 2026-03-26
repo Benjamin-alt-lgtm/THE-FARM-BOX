@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – The Farm Box | Get in Touch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{forest:{50:'#f0f7ee',100:'#ddf0d8',200:'#bbddb1',300:'#8ec484',400:'#5fa854',500:'#3d8c33',600:'#2e7026',700:'#255c1e',800:'#1e491a',900:'#193d16'},earth:{50:'#fdf8f0',100:'#f7ead8',200:'#eed4b0',300:'#e0b87e',400:'#d09b52',500:'#c07f35',600:'#a5652a'},cream:'#faf7f2',sage:'#8fad88'},fontFamily:{display:['Fraunces','Georgia','serif'],body:['DM Sans','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="font-body bg-cream text-stone-800">
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2"><div class="w-9 h-9 bg-forest-600 rounded-full flex items-center justify-center text-sm">🌿</div><span class="nav-logo-text font-display font-semibold text-xl">The Farm Box</span></a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm text-stone-600 hover:text-forest-600">Home</a>
+          <a href="shop.html" class="text-sm text-stone-600 hover:text-forest-600">Shop</a>
+          <a href="subscription.html" class="text-sm text-stone-600 hover:text-forest-600">Subscribe</a>
+          <a href="about.html" class="text-sm text-stone-600 hover:text-forest-600">About</a>
+          <a href="contact.html" class="text-sm font-semibold text-forest-700">Contact</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="shop.html" class="hidden md:inline-flex bg-forest-600 hover:bg-forest-700 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors">Order Now</a>
+          <button class="md:hidden p-2" onclick="toggleMenu()"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white border-t shadow-lg"><div class="px-4 py-4 flex flex-col gap-2"><a href="index.html" class="text-sm text-stone-600 py-2">Home</a><a href="shop.html" class="text-sm text-stone-600 py-2">Shop</a><a href="subscription.html" class="text-sm text-stone-600 py-2">Subscribe</a><a href="about.html" class="text-sm text-stone-600 py-2">About</a><a href="contact.html" class="text-sm font-semibold text-forest-700 py-2">Contact</a></div></div>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="pt-24 pb-12 bg-gradient-to-br from-forest-50 via-cream to-earth-50 border-b border-stone-100">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <span class="inline-block text-forest-600 text-xs font-bold uppercase tracking-widest bg-forest-100 px-4 py-1.5 rounded-full mb-5">Get in Touch</span>
+      <h1 class="font-display text-5xl md:text-6xl font-semibold text-stone-800 mb-4">We'd love to<br/><em class="text-forest-600 not-italic">hear from you.</em></h1>
+      <p class="text-stone-500 max-w-md mx-auto">Questions, orders, partnerships — we respond within 24 hours. WhatsApp is fastest!</p>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+
+      <!-- CONTACT INFO -->
+      <div>
+        <h2 class="font-display text-3xl font-semibold text-stone-800 mb-8">Other ways to reach us</h2>
+
+        <a href="https://wa.me/2348000000000" target="_blank" class="flex items-center gap-4 bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 rounded-2xl p-5 mb-4 transition-all group">
+          <div class="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-stone-800">WhatsApp (Fastest)</div>
+            <div class="text-stone-500 text-sm">+234 800 000 0000</div>
+            <div class="text-xs text-green-600 font-medium mt-0.5">Usually replies within 30 mins</div>
+          </div>
+        </a>
+
+        <a href="/cdn-cgi/l/email-protection#84ece1e8e8ebc4f0ece1e2e5f6e9e6ebfcaaeae3" class="flex items-center gap-4 bg-forest-50 border border-forest-100 hover:bg-forest-100 rounded-2xl p-5 mb-4 transition-all">
+          <div class="w-12 h-12 bg-forest-600 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-stone-800">Email</div>
+            <div class="text-stone-500 text-sm"><span class="__cf_email__" data-cfemail="dfb7bab3b3b09fabb7bab9beadb2bdb0a7f1b1b8">[email&#160;protected]</span></div>
+            <div class="text-xs text-stone-400 mt-0.5">Response within 24 hours</div>
+          </div>
+        </a>
+
+        <a href="tel:+2348000000000" class="flex items-center gap-4 bg-earth-50 border border-earth-100 hover:bg-earth-100 rounded-2xl p-5 mb-4 transition-all">
+          <div class="w-12 h-12 bg-earth-500 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="font-semibold text-stone-800">Phone</div>
+            <div class="text-stone-500 text-sm">+234 800 000 0000</div>
+            <div class="text-xs text-stone-400 mt-0.5">Mon–Sat · 7am to 8pm</div>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4 bg-white border border-stone-100 rounded-2xl p-5">
+          <div class="w-12 h-12 bg-stone-100 rounded-xl flex items-center justify-center flex-shrink-0 text-xl">📍</div>
+          <div>
+            <div class="font-semibold text-stone-800">Location</div>
+            <div class="text-stone-500 text-sm">Lagos, Nigeria</div>
+            <div class="text-xs text-stone-400 mt-0.5">Delivering across all of Lagos</div>
+          </div>
+        </div>
+
+        <!-- Instagram -->
+        <div class="mt-6">
+          <h3 class="font-semibold text-stone-800 mb-3">Follow us</h3>
+          <a href="https://instagram.com/thefarmboxng" target="_blank" class="inline-flex items-center gap-2 bg-white border border-stone-200 hover:border-pink-300 text-stone-700 font-medium text-sm px-5 py-2.5 rounded-full transition-colors">
+            📸 @thefarmboxng on Instagram
+          </a>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="bg-white rounded-3xl p-7 md:p-10 border border-stone-100 shadow-lg shadow-stone-50">
+        <h2 class="font-display text-3xl font-semibold text-stone-800 mb-2">Send us a message</h2>
+        <p class="text-stone-500 text-sm mb-8">We'll get back to you within 24 hours.</p>
+
+        <div id="form-success" class="hidden bg-forest-50 border border-forest-200 rounded-2xl p-6 text-center mb-6">
+          <div class="text-4xl mb-3">✅</div>
+          <h3 class="font-semibold text-forest-800 mb-1">Message sent!</h3>
+          <p class="text-forest-700 text-sm">We'll reply within 24 hours. For faster support, WhatsApp us!</p>
+        </div>
+        <div id="form-error" class="hidden bg-red-50 border border-red-200 rounded-2xl p-4 mb-5 text-sm text-red-700"></div>
+
+        <div class="space-y-4" id="contact-form">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">First name *</label>
+              <input id="cf-fname" type="text" placeholder="Tunde" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">Last name *</label>
+              <input id="cf-lname" type="text" placeholder="Okafor" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">Email *</label>
+            <input id="cf-email" type="email" placeholder="you@example.com" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">Topic</label>
+            <select id="cf-topic" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all">
+              <option value="">Select a topic…</option>
+              <option>General enquiry</option>
+              <option>Order issue</option>
+              <option>Subscription question</option>
+              <option>Restaurant / bulk order</option>
+              <option>Farm partnership</option>
+              <option>Press / media</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-stone-500 uppercase tracking-wider mb-1.5">Message *</label>
+            <textarea id="cf-message" rows="5" placeholder="Tell us how we can help…" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+          <button onclick="submitContact()" id="cf-btn" class="w-full bg-forest-600 hover:bg-forest-700 text-white font-semibold py-4 rounded-full transition-all hover:shadow-lg text-sm">
+            Send Message →
+          </button>
+          <p class="text-center text-xs text-stone-400">Or message us directly on <a href="https://wa.me/2348000000000" target="_blank" class="text-green-600 hover:underline font-medium">WhatsApp</a> for immediate help</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-forest-900 text-white py-8 mt-4">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2"><div class="w-7 h-7 bg-forest-600 rounded-full flex items-center justify-center text-xs">🌿</div><span class="font-display font-semibold">The Farm Box</span></div>
+      <div class="flex gap-6"><a href="index.html" class="text-white/60 hover:text-white text-sm">Home</a><a href="shop.html" class="text-white/60 hover:text-white text-sm">Shop</a><a href="about.html" class="text-white/60 hover:text-white text-sm">About</a></div>
+      <p class="text-white/30 text-xs">© 2025 The Farm Box</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348000000000" target="_blank" class="wa-float"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-forest-800 text-white text-sm font-medium px-6 py-3 rounded-full shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none whitespace-nowrap"></div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/api.js"></script><script src="js/cart.js"></script><script src="js/main.js"></script>
+  <script>
+    async function submitContact() {
+      const btn = document.getElementById('cf-btn');
+      const err = document.getElementById('form-error');
+      const suc = document.getElementById('form-success');
+      err.classList.add('hidden'); suc.classList.add('hidden');
+
+      const fname = document.getElementById('cf-fname').value.trim();
+      const lname = document.getElementById('cf-lname').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+
+      if (!fname || !lname) { err.textContent='Please enter your full name.'; err.classList.remove('hidden'); return; }
+      if (!email || !/^[\w.-]+@[\w.-]+\.\w{2,}$/.test(email)) { err.textContent='Please enter a valid email address.'; err.classList.remove('hidden'); return; }
+      if (message.length < 20) { err.textContent='Please write a message (at least 20 characters).'; err.classList.remove('hidden'); return; }
+
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        await window.FarmAPI.postContact({ name: `${fname} ${lname}`, email, topic: document.getElementById('cf-topic').value, message });
+        suc.classList.remove('hidden');
+        document.getElementById('contact-form').style.opacity = '0.4';
+        document.getElementById('contact-form').style.pointerEvents = 'none';
+      }

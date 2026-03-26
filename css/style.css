@@ -1,0 +1,107 @@
+/* ============================================================
+   THE FARM BOX — Global Styles
+   ============================================================ */
+
+:root {
+  --green-700: #2e7026;
+  --green-800: #255c1e;
+  --earth:     #d09b52;
+  --cream:     #faf7f2;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { scroll-behavior: smooth; }
+body { background-color: var(--cream); }
+
+/* ── NAVBAR ──────────────────────────────────────────────────
+   DEFAULT = solid white. Works on every inner page immediately
+   with zero JavaScript.
+
+   On the homepage the JS adds .nav-hero while the user is
+   at the top of the page, making it transparent over the hero
+   image. Scrolling past 80px removes .nav-hero → solid again.
+   ─────────────────────────────────────────────────────────── */
+#navbar {
+  background: rgba(250, 247, 242, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07), 0 4px 24px rgba(0,0,0,0.04);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Solid-state text colours */
+#navbar .nav-link       { color: #3a4a38; transition: color 0.2s; }
+#navbar .nav-link:hover { color: var(--green-700); }
+#navbar .nav-logo-text  { color: #1e4918; transition: color 0.3s; }
+#navbar .nav-icon       { color: #3a4a38; transition: color 0.3s; }
+
+/* Transparent hero state (homepage only, at top) */
+#navbar.nav-hero {
+  background: transparent;
+  box-shadow: none;
+}
+#navbar.nav-hero .nav-link       { color: rgba(255,255,255,0.85); }
+#navbar.nav-hero .nav-link:hover { color: #fff; }
+#navbar.nav-hero .nav-logo-text  { color: #fff; }
+#navbar.nav-hero .nav-icon       { color: #fff; }
+
+/* Mobile menu always solid regardless of navbar state */
+#mobile-menu {
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────────*/
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.75s ease both; }
+
+/* ── PRODUCT CARDS ───────────────────────────────────────────*/
+.product-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.product-card:hover { transform: translateY(-5px); }
+
+/* ── FORM FIELDS ─────────────────────────────────────────────*/
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--green-700) !important;
+  box-shadow: 0 0 0 3px rgba(46,112,38,0.12);
+}
+
+/* ── CART QTY BUTTONS ────────────────────────────────────────*/
+.qty-btn {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: #f0f7ee;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--green-700);
+  transition: background 0.2s;
+  user-select: none;
+}
+.qty-btn:hover { background: #ddf0d8; }
+
+/* ── WHATSAPP FLOAT ──────────────────────────────────────────*/
+.wa-float {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 40;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+}

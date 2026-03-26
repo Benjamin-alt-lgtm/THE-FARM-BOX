@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subscribe – The Farm Box | Weekly & Monthly Plans</title>
+  <meta name="description" content="Subscribe to The Farm Box for weekly or monthly fresh produce delivery in Lagos. Save up to 12% vs one-time orders."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{forest:{50:'#f0f7ee',100:'#ddf0d8',200:'#bbddb1',300:'#8ec484',400:'#5fa854',500:'#3d8c33',600:'#2e7026',700:'#255c1e',800:'#1e491a',900:'#193d16'},earth:{50:'#fdf8f0',100:'#f7ead8',200:'#eed4b0',300:'#e0b87e',400:'#d09b52',500:'#c07f35',600:'#a5652a'},cream:'#faf7f2',sage:'#8fad88'},fontFamily:{display:['Fraunces','Georgia','serif'],body:['DM Sans','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="font-body bg-cream text-stone-800">
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2"><div class="w-9 h-9 bg-forest-600 rounded-full flex items-center justify-center text-sm">🌿</div><span class="nav-logo-text font-display font-semibold text-xl">The Farm Box</span></a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-medium text-stone-600 hover:text-forest-600 transition-colors">Home</a>
+          <a href="shop.html" class="text-sm font-medium text-stone-600 hover:text-forest-600 transition-colors">Shop</a>
+          <a href="subscription.html" class="text-sm font-semibold text-forest-700">Subscribe</a>
+          <a href="about.html" class="text-sm font-medium text-stone-600 hover:text-forest-600 transition-colors">About</a>
+          <a href="contact.html" class="text-sm font-medium text-stone-600 hover:text-forest-600 transition-colors">Contact</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="cart-btn" class="relative p-2 hover:bg-forest-50 rounded-full" onclick="toggleCart()"><svg class="nav-icon w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span id="cart-count" class="absolute -top-1 -right-1 bg-earth-400 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center font-medium hidden">0</span></button>
+          <button class="md:hidden p-2" onclick="toggleMenu()"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden">
+      <div class="px-4 py-4 flex flex-col gap-2">
+        <a href="index.html" class="text-sm text-stone-600 py-2">Home</a><a href="shop.html" class="text-sm text-stone-600 py-2">Shop</a><a href="subscription.html" class="text-sm font-semibold text-forest-700 py-2">Subscribe</a><a href="about.html" class="text-sm text-stone-600 py-2">About</a><a href="contact.html" class="text-sm text-stone-600 py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="pt-24 pb-16 bg-gradient-to-br from-forest-50 via-cream to-earth-50 border-b border-stone-100 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <span class="inline-block text-forest-600 text-xs font-bold uppercase tracking-widest bg-forest-100 px-4 py-1.5 rounded-full mb-5">Subscription Plans</span>
+      <h1 class="font-display text-5xl md:text-6xl font-semibold text-stone-800 mb-4">Never run out<br/><em class="text-forest-600 not-italic">of fresh food.</em></h1>
+      <p class="text-stone-500 text-lg max-w-xl mx-auto">Subscribe and save — get fresh produce delivered on a schedule that works for you, with up to 12% off one-time pricing.</p>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+    <!-- SUBSCRIPTION BUILDER -->
+    <div class="bg-white rounded-3xl border border-stone-100 shadow-xl shadow-stone-100 overflow-hidden">
+      <div class="md:flex">
+        <!-- LEFT – configurator -->
+        <div class="md:w-3/5 p-8 md:p-10 border-b md:border-b-0 md:border-r border-stone-100">
+          <h2 class="font-display text-3xl font-semibold text-stone-800 mb-8">Build your plan</h2>
+
+          <!-- Step 1: Box size -->
+          <div class="mb-8">
+            <label class="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">Step 1 — Choose box size</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button data-box="small" onclick="selectBox('small')" class="box-btn selected border-2 border-forest-500 bg-forest-50 rounded-2xl p-4 text-center transition-all">
+                <div class="text-2xl mb-1">📦</div>
+                <div class="font-bold text-sm text-stone-800">Small</div>
+                <div class="text-xs text-stone-400">₦5,000</div>
+              </button>
+              <button data-box="medium" onclick="selectBox('medium')" class="box-btn border-2 border-stone-200 bg-white rounded-2xl p-4 text-center transition-all hover:border-forest-300">
+                <div class="text-2xl mb-1">📦📦</div>
+                <div class="font-bold text-sm text-stone-800">Medium</div>
+                <div class="text-xs text-stone-400">₦10,000</div>
+              </button>
+              <button data-box="large" onclick="selectBox('large')" class="box-btn border-2 border-stone-200 bg-white rounded-2xl p-4 text-center transition-all hover:border-forest-300">
+                <div class="text-2xl mb-1">📦📦📦</div>
+                <div class="font-bold text-sm text-stone-800">Large</div>
+                <div class="text-xs text-stone-400">₦15,000</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Frequency -->
+          <div class="mb-8">
+            <label class="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">Step 2 — How often?</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button data-freq="weekly" onclick="selectFreq('weekly')" class="freq-btn border-2 border-stone-200 bg-white rounded-2xl p-4 text-center transition-all hover:border-forest-300">
+                <div class="font-bold text-sm text-stone-800">Weekly</div>
+                <div class="text-xs text-green-600 font-semibold">Save 5%</div>
+              </button>
+              <button data-freq="biweekly" onclick="selectFreq('biweekly')" class="freq-btn selected border-2 border-forest-500 bg-forest-50 rounded-2xl p-4 text-center transition-all">
+                <div class="font-bold text-sm text-stone-800">Bi-weekly</div>
+                <div class="text-xs text-green-600 font-semibold">Save 8%</div>
+              </button>
+              <button data-freq="monthly" onclick="selectFreq('monthly')" class="freq-btn border-2 border-stone-200 bg-white rounded-2xl p-4 text-center transition-all hover:border-forest-300">
+                <div class="font-bold text-sm text-stone-800">Monthly</div>
+                <div class="text-xs text-green-600 font-semibold">Save 12%</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3: Details -->
+          <div class="mb-8">
+            <label class="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-3">Step 3 — Your details</label>
+            <div class="space-y-3">
+              <input id="sub-name" type="text" placeholder="Full name *" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+              <input id="sub-phone" type="tel" placeholder="WhatsApp number * (e.g. 08012345678)" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+              <input id="sub-email" type="email" placeholder="Email address *" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all"/>
+              <textarea id="sub-address" rows="2" placeholder="Delivery address in Lagos *" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-sm focus:border-forest-400 focus:bg-white transition-all resize-none"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT – summary -->
+        <div class="md:w-2/5 p-8 md:p-10 bg-forest-50">
+          <h3 class="font-display text-2xl font-semibold text-stone-800 mb-6">Order Summary</h3>
+          <div class="bg-white rounded-2xl p-5 mb-6 border border-forest-100">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-stone-500">Box</span><span class="font-semibold text-stone-800" id="sum-box">Small Box</span>
+            </div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-stone-500">Frequency</span><span class="font-semibold text-stone-800" id="sum-freq">Bi-weekly</span>
+            </div>
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-stone-500">Base price</span><span class="font-semibold text-stone-800" id="sum-base">₦5,000</span>
+            </div>
+            <div class="flex justify-between text-sm mb-3">
+              <span class="text-green-600">Discount</span><span class="text-green-600 font-semibold" id="sum-discount">-₦400</span>
+            </div>
+            <div class="border-t border-stone-100 pt-3 flex justify-between">
+              <span class="font-bold text-stone-800">You pay</span>
+              <span class="font-display font-bold text-2xl text-forest-700" id="sum-total">₦4,600</span>
+            </div>
+            <p class="text-xs text-stone-400 mt-1 text-right" id="sum-period">per delivery</p>
+          </div>
+          <ul class="space-y-2 mb-8">
+            <li class="text-sm text-stone-600 flex items-center gap-2"><span class="text-forest-500 text-base">✓</span> Cancel anytime, no fees</li>
+            <li class="text-sm text-stone-600 flex items-center gap-2"><span class="text-forest-500 text-base">✓</span> Pause or modify at any time</li>
+            <li class="text-sm text-stone-600 flex items-center gap-2"><span class="text-forest-500 text-base">✓</span> Freshness guaranteed or refund</li>
+            <li class="text-sm text-stone-600 flex items-center gap-2"><span class="text-forest-500 text-base">✓</span> WhatsApp updates on every delivery</li>
+          </ul>
+          <div id="sub-success" class="hidden bg-forest-100 border border-forest-300 rounded-2xl p-4 mb-4 text-center">
+            <div class="text-3xl mb-2">🎉</div>
+            <p class="font-semibold text-forest-800 text-sm">Subscription confirmed!</p>
+            <p class="text-forest-700 text-xs mt-1" id="sub-success-msg"></p>
+          </div>
+          <div id="sub-error" class="hidden bg-red-50 border border-red-200 rounded-2xl p-3 mb-4 text-sm text-red-700"></div>
+          <button onclick="submitSubscription()" id="sub-btn" class="w-full bg-forest-600 hover:bg-forest-700 text-white font-semibold py-4 rounded-full transition-all hover:shadow-lg text-base">
+            Start My Subscription →
+          </button>
+          <p class="text-xs text-stone-400 text-center mt-3">We'll confirm via WhatsApp within 1 hour</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-20">
+      <h2 class="font-display text-3xl font-semibold text-stone-800 text-center mb-10">Common questions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-6 border border-stone-100">
+          <h4 class="font-semibold text-stone-800 mb-2">Can I skip a delivery?</h4>
+          <p class="text-stone-500 text-sm">Yes! Just message us on WhatsApp at least 48 hours before your delivery day to skip or reschedule.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-stone-100">
+          <h4 class="font-semibold text-stone-800 mb-2">What's in the box each week?</h4>
+          <p class="text-stone-500 text-sm">We curate based on seasonal availability, so it varies. We'll always notify you via WhatsApp the day before.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-stone-100">
+          <h4 class="font-semibold text-stone-800 mb-2">How do I cancel?</h4>
+          <p class="text-stone-500 text-sm">Just WhatsApp us anytime. No cancellation fees, no questions asked. Your next charge won't occur.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-stone-100">
+          <h4 class="font-semibold text-stone-800 mb-2">Do you deliver on weekends?</h4>
+          <p class="text-stone-500 text-sm">Yes! We deliver Monday to Saturday, 8am to 6pm. You choose your preferred day at signup.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest-900 text-white py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2"><div class="w-7 h-7 bg-forest-600 rounded-full flex items-center justify-center text-xs">🌿</div><span class="font-display font-semibold">The Farm Box</span></div>
+      <div class="flex gap-6"><a href="index.html" class="text-white/60 hover:text-white text-sm">Home</a><a href="shop.html" class="text-white/60 hover:text-white text-sm">Shop</a><a href="contact.html" class="text-white/60 hover:text-white text-sm">Contact</a></div>
+      <p class="text-white/30 text-xs">© 2025 The Farm Box</p>
+    </div>
+  </footer>
+
+  <!-- CART -->
+  <div id="cart-overlay" class="fixed inset-0 bg-black/40 z-50 hidden backdrop-blur-sm" onclick="toggleCart()"></div>
+  <div id="cart-drawer" class="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white z-50 shadow-2xl flex flex-col" style="transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1)">
+    <div class="flex items-center justify-between p-5 border-b"><h2 class="font-display text-xl font-semibold">Your Cart</h2><button onclick="toggleCart()" class="p-2 hover:bg-stone-100 rounded-full"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
+    <div class="p-5 border-t"><div class="flex justify-between mb-4"><span class="text-stone-500 text-sm">Total</span><span id="cart-total" class="font-display font-bold text-2xl text-forest-700">₦0</span></div>
+    <button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-3.5 rounded-full mb-2 text-sm transition-colors">Order via WhatsApp</button>
+    <button onclick="checkoutPaystack()" class="w-full bg-forest-600 hover:bg-forest-700 text-white font-semibold py-3.5 rounded-full text-sm transition-colors">Pay with Card</button></div>
+  </div>
+  <a href="https://wa.me/2348000000000" target="_blank" class="wa-float"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-forest-800 text-white text-sm font-medium px-6 py-3 rounded-full shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none whitespace-nowrap"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const PRICES = { small: 5000, medium: 10000, large: 15000 };
+    const DISCOUNTS = { weekly: 0.05, biweekly: 0.08, monthly: 0.12 };
+    let selectedBox = 'small', selectedFreq = 'biweekly';
+
+    function selectBox(box) {
+      selectedBox = box;
+      document.querySelectorAll('.box-btn').forEach(b => {
+        const sel = b.dataset.box === box;
+        b.classList.toggle('border-forest-500', sel); b.classList.toggle('bg-forest-50', sel);
+        b.classList.toggle('border-stone-200', !sel); b.classList.toggle('bg-white', !sel);
+      });
+      updateSummary();
+    }
+
+    function selectFreq(freq) {
+      selectedFreq = freq;
+      document.querySelectorAll('.freq-btn').forEach(b => {
+        const sel = b.dataset.freq === freq;
+        b.classList.toggle('border-forest-500', sel); b.classList.toggle('bg-forest-50', sel);
+        b.classList.toggle('border-stone-200', !sel); b.classList.toggle('bg-white', !sel);
+      });
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const base = PRICES[selectedBox] || 5000;
+      const disc = DISCOUNTS[selectedFreq] || 0;
+      const final = Math.round(base * (1 - disc));
+      const saving = base - final;
+      const freqLabels = { weekly: 'Weekly', biweekly: 'Bi-weekly', monthly: 'Monthly' };
+      const boxLabels = { small: 'Small Box (5–7 items)', medium: 'Medium Box (10–12 items)', large: 'Large Box (18–22 items)' };
+      document.getElementById('sum-box').textContent = boxLabels[selectedBox];
+      document.getElementById('sum-freq').textContent = freqLabels[selectedFreq];
+      document.getElementById('sum-base').textContent = '₦' + base.toLocaleString();
+      document.getElementById('sum-discount').textContent = '-₦' + saving.toLocaleString();
+      document.getElementById('sum-total').textContent = '₦' + final.toLocaleString();
+      document.getElementById('sum-period').textContent = 'per ' + (selectedFreq === 'monthly' ? 'month' : selectedFreq === 'weekly' ? 'week' : 'two weeks');
+    }
+
+    async function submitSubscription() {
+      const errEl = document.getElementById('sub-error');
+      const sucEl = document.getElementById('sub-success');
+      const btn = document.getElementById('sub-btn');
+      errEl.classList.add('hidden'); sucEl.classList.add('hidden');
+
+      const name = document.getElementById('sub-name').value.trim();
+      const phone = document.getElementById('sub-phone').value.trim();
+      const email = document.getElementById('sub-email').value.trim();
+      const address = document.getElementById('sub-address').value.trim();
+
+      if (!name || !phone || !email || !address) {
+        errEl.textContent = 'Please fill in all required fields.'; errEl.classList.remove('hidden'); return;
+      }
+      if (!/^[\w.-]+@[\w.-]+\.\w{2,}$/.test(email)) {
+        errEl.textContent = 'Please enter a valid email address.'; errEl.classList.remove('hidden'); return;
+      }
+      if (phone.replace(/\D/g,'').length < 10) {
+        errEl.textContent = 'Please enter a valid Nigerian phone number.'; errEl.classList.remove('hidden'); return;
+      }
+
+      btn.disabled = true; btn.textContent = 'Processing…';
+      try {
+        const res = await window.FarmAPI.postSubscription({ boxSize: selectedBox, frequency: selectedFreq, customerName: name, phone, email, address });
+        sucEl.classList.remove('hidden');
+        document.getElementById('sub-success-msg').textContent = res.message;
+        btn.textContent = '✓ Subscribed!';
+        // Also open WhatsApp to confirm
+        const msg = `Hi Farm Box! 🌿 I just subscribed!\n\nName: ${name}\nPhone: ${phone}\nBox: ${selectedBox}\nFrequency: ${selectedFreq}\nAddress: ${address}\n\nSubscription ID: ${res.subId}\nAmount: ₦${res.finalPrice.toLocaleString()}`;
+        setTimeout(() => window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(msg)}`, '_blank'), 1000);
+      } catch(e) {
+        errEl.textContent = e.message || 'Something went wrong. Please try again.'; errEl.classList.remove('hidden');
+        btn.disabled = false; btn.textContent = 'Start My Subscription →';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateSummary);
+  </script>
+</body>
+</html>

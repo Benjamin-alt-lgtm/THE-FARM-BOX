@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – The Farm Box | Our Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{forest:{50:'#f0f7ee',100:'#ddf0d8',200:'#bbddb1',300:'#8ec484',400:'#5fa854',500:'#3d8c33',600:'#2e7026',700:'#255c1e',800:'#1e491a',900:'#193d16'},earth:{50:'#fdf8f0',100:'#f7ead8',200:'#eed4b0',300:'#e0b87e',400:'#d09b52',500:'#c07f35',600:'#a5652a'},cream:'#faf7f2',sage:'#8fad88'},fontFamily:{display:['Fraunces','Georgia','serif'],body:['DM Sans','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="font-body bg-cream text-stone-800">
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <a href="index.html" class="flex items-center gap-2"><div class="w-9 h-9 bg-forest-600 rounded-full flex items-center justify-center text-sm">🌿</div><span class="nav-logo-text font-display font-semibold text-xl">The Farm Box</span></a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-medium text-stone-600 hover:text-forest-600">Home</a>
+          <a href="shop.html" class="text-sm font-medium text-stone-600 hover:text-forest-600">Shop</a>
+          <a href="subscription.html" class="text-sm font-medium text-stone-600 hover:text-forest-600">Subscribe</a>
+          <a href="about.html" class="text-sm font-semibold text-forest-700">About</a>
+          <a href="contact.html" class="text-sm font-medium text-stone-600 hover:text-forest-600">Contact</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="shop.html" class="hidden md:inline-flex bg-forest-600 hover:bg-forest-700 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-colors">Order Now</a>
+          <button class="md:hidden p-2" onclick="toggleMenu()"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden bg-white border-t shadow-lg">
+      <div class="px-4 py-4 flex flex-col gap-2">
+        <a href="index.html" class="text-sm text-stone-600 py-2">Home</a><a href="shop.html" class="text-sm text-stone-600 py-2">Shop</a><a href="subscription.html" class="text-sm text-stone-600 py-2">Subscribe</a><a href="about.html" class="text-sm font-semibold text-forest-700 py-2">About</a><a href="contact.html" class="text-sm text-stone-600 py-2">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="relative pt-16 overflow-hidden">
+    <div class="absolute inset-0 h-96 md:h-[480px]">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1400&q=80" alt="Nigerian farm" class="w-full h-full object-cover loaded"/>
+      <div class="absolute inset-0 bg-gradient-to-b from-forest-900/50 to-cream"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-0 text-center">
+      <span class="inline-block text-white/80 text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 px-4 py-1.5 rounded-full mb-6">Our Story</span>
+      <h1 class="font-display text-5xl md:text-7xl font-semibold text-white mb-4">Born from a<br/><em class="text-earth-300 not-italic">simple belief.</em></h1>
+      <p class="text-white/70 text-lg max-w-xl mx-auto">Fresh food should be accessible to every Lagos family — without markup, without middlemen, without compromise.</p>
+    </div>
+    <div class="relative z-10 h-32 md:h-48"></div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- STORY -->
+    <section class="py-16 md:py-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <span class="text-forest-600 text-xs font-bold uppercase tracking-widest">The Beginning</span>
+          <h2 class="font-display text-4xl font-semibold text-stone-800 mt-3 mb-6">From one farmer's field to 500+ families</h2>
+          <p class="text-stone-600 leading-relaxed mb-4">The Farm Box started in 2023 when our founder, Tunde Okafor, noticed something broken: his uncle's farm in Ogun State was producing world-class tomatoes, but Lagos families were buying inferior, preservative-laced produce from middlemen at inflated prices.</p>
+          <p class="text-stone-600 leading-relaxed mb-4">The solution was obvious. Cut out the chain. Connect farmers directly to consumers. Package it beautifully. Deliver it fast.</p>
+          <p class="text-stone-600 leading-relaxed">What started as 10 boxes a week delivered from a small van is now 500+ happy households and businesses receiving fresh farm produce weekly across Lagos.</p>
+        </div>
+        <div class="rounded-3xl overflow-hidden h-80 md:h-96">
+          <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=700&q=80" alt="Nigerian farmer" class="w-full h-full object-cover loaded"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="py-16 bg-forest-50 rounded-3xl px-8 md:px-12 mb-16">
+      <div class="text-center mb-12">
+        <span class="text-forest-600 text-xs font-bold uppercase tracking-widest">Our Values</span>
+        <h2 class="font-display text-4xl font-semibold text-stone-800 mt-3">What we stand for</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">🌾</div>
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Farmer First</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">We pay farmers fairly — above market rate — because when they thrive, Nigeria's food security thrives.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">🥦</div>
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Radical Freshness</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">Produce is harvested the same day it's packed. Nothing sits in cold storage for weeks. No compromises.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">🌍</div>
+          <h3 class="font-semibold text-stone-800 text-lg mb-2">Local Impact</h3>
+          <p class="text-stone-500 text-sm leading-relaxed">100% of our produce comes from Nigerian farms. We support local agriculture and build rural livelihoods.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="py-16 text-center mb-16">
+      <h2 class="font-display text-4xl font-semibold text-stone-800 mb-12">By the numbers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-3xl p-8 border border-stone-100">
+          <div class="font-display text-5xl font-bold text-forest-700 mb-2">500+</div>
+          <div class="text-stone-500 text-sm">Happy families served</div>
+        </div>
+        <div class="bg-white rounded-3xl p-8 border border-stone-100">
+          <div class="font-display text-5xl font-bold text-earth-500 mb-2">50+</div>
+          <div class="text-stone-500 text-sm">Partner farms across Nigeria</div>
+        </div>
+        <div class="bg-white rounded-3xl p-8 border border-stone-100">
+          <div class="font-display text-5xl font-bold text-forest-700 mb-2">2yr</div>
+          <div class="text-stone-500 text-sm">Delivering across Lagos</div>
+        </div>
+        <div class="bg-white rounded-3xl p-8 border border-stone-100">
+          <div class="font-display text-5xl font-bold text-earth-500 mb-2">4.9★</div>
+          <div class="text-stone-500 text-sm">Average customer rating</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="py-16 mb-16">
+      <div class="text-center mb-12">
+        <span class="text-forest-600 text-xs font-bold uppercase tracking-widest">The Team</span>
+        <h2 class="font-display text-4xl font-semibold text-stone-800 mt-3">The people behind your box</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-3">
+            <img src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?w=200&h=200&fit=crop&crop=face" class="w-full h-full object-cover loaded"/>
+          </div>
+          <div class="font-semibold text-sm text-stone-800">Tunde Okafor</div>
+          <div class="text-xs text-forest-600">CEO & Founder</div>
+        </div>
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-3">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&h=200&fit=crop&crop=face" class="w-full h-full object-cover loaded"/>
+          </div>
+          <div class="font-semibold text-sm text-stone-800">Ngozi Eze</div>
+          <div class="text-xs text-forest-600">Operations Manager</div>
+        </div>
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-3">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face" class="w-full h-full object-cover loaded"/>
+          </div>
+          <div class="font-semibold text-sm text-stone-800">Amina Suleiman</div>
+          <div class="text-xs text-forest-600">Marketing Lead</div>
+        </div>
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-2xl overflow-hidden mx-auto mb-3">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=face" class="w-full h-full object-cover loaded"/>
+          </div>
+          <div class="font-semibold text-sm text-stone-800">Chidi Obi</div>
+          <div class="text-xs text-forest-600">Finance & Admin</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative rounded-3xl overflow-hidden mb-20">
+      <div class="absolute inset-0"><img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1200&q=80" alt="Farm" class="w-full h-full object-cover loaded"/><div class="absolute inset-0 bg-forest-900/80"></div></div>
+      <div class="relative z-10 text-center py-16 px-6">
+        <h2 class="font-display text-4xl font-semibold text-white mb-4">Become part of the story</h2>
+        <p class="text-white/70 mb-8 max-w-md mx-auto">Every box you buy supports a Nigerian farmer. Join the movement.</p>
+        <a href="shop.html" class="inline-flex items-center gap-2 bg-forest-500 hover:bg-forest-400 text-white font-semibold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl">
+          Shop Now →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-forest-900 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2"><div class="w-7 h-7 bg-forest-600 rounded-full flex items-center justify-center text-xs">🌿</div><span class="font-display font-semibold">The Farm Box</span></div>
+      <div class="flex gap-6"><a href="index.html" class="text-white/60 hover:text-white text-sm">Home</a><a href="shop.html" class="text-white/60 hover:text-white text-sm">Shop</a><a href="contact.html" class="text-white/60 hover:text-white text-sm">Contact</a></div>
+      <p class="text-white/30 text-xs">© 2025 The Farm Box</p>
+    </div>
+  </footer>
+  <a href="https://wa.me/2348000000000" target="_blank" class="wa-float"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="js/api.js"></script><script src="js/cart.js"></script><script src="js/main.js"></script>
+</body>
+</html>
