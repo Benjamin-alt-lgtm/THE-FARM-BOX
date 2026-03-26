@@ -37,7 +37,7 @@ pk_test_REPLACE_WITH_YOUR_PAYSTACK_KEY
 with your real public key from dashboard.paystack.com
 
 ## Change WhatsApp Number
-Search all files for `2348000000000` and replace with your number (no `+`).
+Search all files for `2348111066070` and replace with your number (no `+`).
 
 ## Connect Real Backend
 In `js/api.js`, replace each `setTimeout` simulation with a `fetch()` call, e.g.:

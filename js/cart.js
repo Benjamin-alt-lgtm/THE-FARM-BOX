@@ -126,7 +126,7 @@ function checkoutWhatsApp() {
   if (cart.length === 0) { showToast('Your cart is empty!'); return; }
   const lines = cart.map(i => `• ${i.name} x${i.qty} = ₦${(i.price * i.qty).toLocaleString()}`).join('\n');
   const msg   = `Hello The Farm Box! 🌿\n\nI'd like to order:\n\n${lines}\n\n*Total: ₦${getTotal().toLocaleString()}*\n\nPlease confirm and arrange delivery. Thank you!`;
-  window.open(`https://wa.me/2348000000000?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/2348111066070?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // ── Paystack checkout ─────────────────────────────────────────────────────────
